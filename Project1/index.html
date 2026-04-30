@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Quiz Game</title>
+    <meta name="description" content="An interactive, beautiful, and engaging quiz game with multiple difficulties, timers, and leaderboards.">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="glass-card active">
+            <h1>Ultimate Quiz</h1>
+            <p style="text-align: center; margin-bottom: 20px; color: var(--text-color); opacity: 0.8;">Test your knowledge in this fast-paced quiz!</p>
+            
+            <div class="input-group">
+                <label for="username">Enter Your Name:</label>
+                <input type="text" id="username" placeholder="e.g. John Doe" autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <label for="difficulty">Select Difficulty:</label>
+                <select id="difficulty">
+                    <option value="easy">Easy (15s per question)</option>
+                    <option value="medium">Medium (10s per question)</option>
+                    <option value="hard">Hard (5s per question)</option>
+                </select>
+            </div>
+
+            <button id="start-btn" class="btn">Start Game</button>
+            <button id="view-leaderboard-btn" class="btn secondary">View Leaderboard</button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="glass-card">
+            <div class="quiz-header">
+                <div>
+                    <span id="question-count" style="font-weight: 600; color: var(--primary-color);">Question 1/5</span>
+                </div>
+                <div>
+                    <span style="font-size: 0.9rem; opacity: 0.8;">Score: </span>
+                    <span id="score-display" style="font-weight: 600; color: #10b981;">0</span>
+                </div>
+                <div class="timer-container">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span id="timer" class="timer">15</span>s
+                </div>
+            </div>
+            <div class="progress-bar-bg">
+                <div id="progress-bar" class="progress-bar"></div>
+            </div>
+
+            <h3 id="question-text" style="margin-top: 20px;">Question goes here</h3>
+            
+            <div id="options-container" class="options-container">
+                <!-- Options injected by JS -->
+            </div>
+
+            <button id="next-btn" class="btn next-btn">Next Question</button>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="glass-card">
+            <h2>Quiz Completed!</h2>
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-size: 1.2rem; margin-bottom: 10px;">Your Score</p>
+                <h1 id="final-score" style="font-size: 4rem; margin: 0; text-shadow: 0 0 20px rgba(20, 184, 166, 0.4);">0</h1>
+                <p id="result-message" style="margin-top: 10px; color: var(--primary-color); font-weight: 600;">Great job!</p>
+            </div>
+            
+            <button id="restart-btn" class="btn">Play Again</button>
+            <button id="result-leaderboard-btn" class="btn secondary">View Leaderboard</button>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard-screen" class="glass-card">
+            <h2>Top Scores</h2>
+            <ul id="leaderboard-list" class="leaderboard-list">
+                <!-- Leaderboard items injected by JS -->
+            </ul>
+            <button id="back-home-btn" class="btn" style="margin-top: 20px;">Back to Home</button>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
